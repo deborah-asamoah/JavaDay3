@@ -39,20 +39,25 @@ public class Question1 {
     protected void orderWordsInWordCount() {
         List<Map.Entry<String, Integer>> listWordCountMap = new ArrayList<>(wordCount.entrySet());
 
-        listWordCountMap.sort(comparingInt(Map.Entry::getValue));
+//        listWordCountMap.sort(comparingInt(Map.Entry::getValue));
         listWordCountMap.sort(comparingByValue());
 
-        listWordCountMap.sort((entry, entry2) -> entry.getValue().compareTo(entry2.getValue()));
+//        listWordCountMap.sort((entry, entry2) -> entry.getValue().compareTo(entry2.getValue()));
 
         // Sort the list by value in ascending order
-        Comparator<Map.Entry<String, Integer>> c = new Comparator<>() {
-            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                return o1.getValue().compareTo(o2.getValue());
-            }
-        };
+//        Comparator<Map.Entry<String, Integer>> c = new Comparator<>() {
+//            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+//                return o1.getValue().compareTo(o2.getValue());
+//            }
+//        };
 
-        listWordCountMap.sort(c);
-        sortedWordCount = listWordCountMap.stream().map((a) -> a.getKey()).collect(Collectors.toList());
+//        listWordCountMap.sort(c);
+        sortedWordCount = listWordCountMap.stream().map(Map.Entry::getKey).collect(Collectors.toList());
+//        m = lt.stream().collect(Collectors.toMap(Staff::getsid, Staff::getName));
+    }
+
+    public List<String> getSortedWordCount() {
+        return sortedWordCount;
     }
 
     protected void getLeastCommonWords() {
